@@ -2,42 +2,42 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORACLE 4.6.2 | Tactical Interface</title>
     <style>
-        :root { --bg: #010409; --panel: #0d1117; --orange: #f0883e; --green: #00ff41; --blue: #58a6ff; --accent: #00f2ff; --text: #c9d1d9; --dim: #8b949e; }
-        body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        :root { --bg: #010409; --panel: #0d1117; --orange: #f0883e; --green: #00ff41; --blue: #58a6ff; --accent: #00f2ff; --text: #c9d1d9; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .dashboard { width: 100%; max-width: 1100px; }
         header { display: flex; justify-content: space-between; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-bottom: 20px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
+        @media (min-width: 600px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
         .card { background: var(--panel); border: 1px solid #30363d; padding: 15px; border-radius: 4px; text-align: center; }
-        .gauge-svg { width: 100px; height: 60px; }
-        .gauge-bg { fill: none; stroke: #21262d; stroke-width: 8; }
-        .gauge-fill { fill: none; stroke-width: 8; stroke-linecap: round; }
         .val { font-size: 1.8rem; font-weight: bold; display: block; margin: 10px 0; color: var(--green); }
-        .threat-matrix { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+        .threat-matrix { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+        @media (min-width: 600px) { .threat-matrix { grid-template-columns: repeat(4, 1fr); } }
         .threat-box { background: #161b22; border: 1px solid #30363d; padding: 10px; text-align: center; }
         .logic-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 20px; }
         .logic-table th, .logic-table td { padding: 12px; text-align: right; border-bottom: 1px solid #30363d; }
         .badge { padding: 2px 6px; border: 1px solid; font-size: 0.65rem; border-radius: 2px; font-weight: bold; }
-        .disclaimer-box { border: 1px solid var(--orange); background: rgba(240, 136, 62, 0.05); padding: 15px; border-radius: 4px; margin-top: 30px; }
-        #admin { margin-top: 20px; padding: 15px; background: #161b22; border: 1px dashed var(--accent); display: none; }
+        .disclaimer-box { border: 2px solid var(--orange); background: rgba(240, 136, 62, 0.1); padding: 15px; border-radius: 4px; margin-top: 30px; }
     </style>
 </head>
 <body>
 <div class="dashboard">
     <header>
         <div style="font-family:monospace; font-size:0.75rem;">● LOG LIVE<br>ORACLE v4.6.2</div>
-        <div style="color:var(--orange); font-weight:bold; letter-spacing: 2px;">COMPREHENSIVE THREAT READINESS DASHBOARD</div>
-        <div style="font-family:monospace; font-size:0.75rem; text-align:left;">2026-02-27 14:10 IST</div>
+        <div style="color:var(--orange); font-weight:bold; text-align:center;">TACTICAL READINESS DASHBOARD</div>
+        <div style="font-family:monospace; font-size:0.75rem; text-align:left;">2026-02-27</div>
     </header>
 
     <div class="grid-4">
-        <div class="card"><svg class="gauge-svg" viewBox="0 0 100 60"><path class="gauge-bg" d="M20 50 A 30 30 0 0 1 80 50"/><path class="gauge-fill" d="M20 50 A 30 30 0 0 1 80 50" stroke="#00ff41" stroke-dasharray="24, 94.2"/></svg><div>NATIONAL B.R.I</div><span class="val">24%</span></div>
-        <div class="card"><svg class="gauge-svg" viewBox="0 0 100 60"><path class="gauge-bg" d="M20 50 A 30 30 0 0 1 80 50"/><path class="gauge-fill" d="M20 50 A 30 30 0 0 1 80 50" stroke="#58a6ff" stroke-dasharray="14, 94.2"/></svg><div>LOCAL B.R.I - NETANYA</div><span class="val" style="color:var(--blue)">14%</span></div>
-        <div class="card"><svg class="gauge-svg" viewBox="0 0 100 60"><path class="gauge-bg" d="M20 50 A 30 30 0 0 1 80 50"/><path class="gauge-fill" d="M20 50 A 30 30 0 0 1 80 50" stroke="#00f2ff" stroke-dasharray="92, 94.2"/></svg><div>AVIATION</div><span class="val" style="color:var(--accent)">98%</span></div>
-        <div class="card"><svg class="gauge-svg" viewBox="0 0 100 60"><path class="gauge-bg" d="M20 50 A 30 30 0 0 1 80 50"/><path class="gauge-fill" d="M20 50 A 30 30 0 0 1 80 50" stroke="#00ff41" stroke-dasharray="89, 94.2"/></svg><div>LOGISTICS</div><span class="val">95%</span></div>
+        <div class="card"><div>NATIONAL B.R.I</div><span class="val">24%</span></div>
+        <div class="card"><div>LOCAL B.R.I</div><span class="val" style="color:var(--blue)">14%</span></div>
+        <div class="card"><div>AVIATION</div><span class="val" style="color:var(--accent)">98%</span></div>
+        <div class="card"><div>LOGISTICS</div><span class="val">95%</span></div>
     </div>
 
+    <div style="font-size: 0.8rem; color: var(--accent); margin-bottom: 10px;">◆ THREAT MATRIX</div>
     <div class="threat-matrix">
         <div class="threat-box">IRAN <span style="color:var(--green); display:block; font-weight:bold;">18%</span></div>
         <div class="threat-box">LEBANON <span style="color:var(--green); display:block; font-weight:bold;">12%</span></div>
@@ -47,24 +47,16 @@
 
     <table class="logic-table">
         <tr><th>PARAMETER</th><th>TYPE</th><th>IMPACT</th></tr>
-        <tr><td>SAI (Strategic Alert)</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK FACTOR</span></td><td style="color:var(--orange)">+19%</td></tr>
-        <tr><td>VEC_C (Proxy Noise)</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK FACTOR</span></td><td style="color:var(--orange)">+7%</td></tr>
-        <tr><td>VEC_A (Aviation Shield)</td><td><span class="badge" style="border-color:var(--blue); color:var(--blue)">MITIGATION</span></td><td style="color:var(--blue)">-10%</td></tr>
-        <tr><td>VEC_B (Signal Check)</td><td><span class="badge" style="border-color:var(--green); color:var(--green)">SENSOR</span></td><td>±0%</td></tr>
-        <tr><td>LOGS (Ground Ops)</td><td><span class="badge" style="border-color:var(--green); color:var(--green)">LOGISTIC</span></td><td>±0%</td></tr>
+        <tr><td>SAI (Strategic Alert)</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK</span></td><td style="color:var(--orange)">+19%</td></tr>
+        <tr><td>VEC_A (Aviation)</td><td><span class="badge" style="border-color:var(--blue); color:var(--blue)">MITIGATION</span></td><td style="color:var(--blue)">-10%</td></tr>
     </table>
 
     <div class="disclaimer-box">
         <div style="color:var(--orange); font-weight:bold; margin-bottom:10px;">⚠ DISCLAIMER</div>
-        <div style="font-size: 0.75rem; line-height: 1.5; text-align: justify;">
-            This dashboard is an experimental analytical model based on open-source data (OSINT) only. It does <b>NOT</b> provide official security instructions or real-time life-saving alerts. Information may be delayed or inaccurate. Do <b>not</b> rely on this data for safety-critical decisions. In case of emergency, follow official <b>Home Front Command (Pikud HaOref)</b> instructions immediately.
+        <div style="font-size: 0.8rem; line-height: 1.5; text-align: justify;">
+            This is an experimental OSINT model. It does NOT provide official security alerts. Follow <b>Home Front Command (Pikud HaOref)</b> instructions immediately.
         </div>
     </div>
-</div>
-
-<button onclick="document.getElementById('admin').style.display='block'" style="background:none; border:none; color:#161b22; cursor:pointer; margin-top:50px;">[ ADMIN ]</button>
-<div id="admin">
-    <button onclick="location.reload()">Refresh Data</button>
 </div>
 </body>
 </html>
