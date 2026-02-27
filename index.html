@@ -6,7 +6,7 @@
     <title>ORACLE 4.6.2 | Tactical Interface</title>
     <style>
         :root { --bg: #010409; --panel: #0d1117; --orange: #f0883e; --green: #00ff41; --blue: #58a6ff; --accent: #00f2ff; --text: #c9d1d9; }
-        body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
         .dashboard { width: 100%; max-width: 1100px; }
         header { display: flex; justify-content: space-between; border-bottom: 1px solid #30363d; padding-bottom: 10px; margin-bottom: 20px; }
         .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
@@ -47,8 +47,11 @@
 
     <table class="logic-table">
         <tr><th>PARAMETER</th><th>TYPE</th><th>IMPACT</th></tr>
-        <tr><td>SAI (Strategic Alert)</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK</span></td><td style="color:var(--orange)">+19%</td></tr>
-        <tr><td>VEC_A (Aviation)</td><td><span class="badge" style="border-color:var(--blue); color:var(--blue)">MITIGATION</span></td><td style="color:var(--blue)">-10%</td></tr>
+        <tr><td>SAI (Strategic Alert)</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK FACTOR</span></td><td style="color:var(--orange)">+19%</td></tr>
+        <tr><td>VEC_C (Proxy Noise)</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK FACTOR</span></td><td style="color:var(--orange)">+7%</td></tr>
+        <tr><td>VEC_A (Aviation Shield)</td><td><span class="badge" style="border-color:var(--blue); color:var(--blue)">MITIGATION</span></td><td style="color:var(--blue)">-10%</td></tr>
+        <tr><td>VEC_B (Signal Check)</td><td><span class="badge" style="border-color:var(--green); color:var(--green)">SENSOR</span></td><td>±0%</td></tr>
+        <tr><td>LOGS (Ground Ops)</td><td><span class="badge" style="border-color:var(--green); color:var(--green)">LOGISTIC</span></td><td>±0%</td></tr>
     </table>
 
     <div class="disclaimer-box">
