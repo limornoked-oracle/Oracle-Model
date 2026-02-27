@@ -1,1 +1,45 @@
-
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORACLE 4.6.2 | Strategic Dashboard</title>
+    <style>
+        :root { --bg: #010409; --panel: #0d1117; --orange: #f0883e; --green: #00ff41; --blue: #58a6ff; --text: #c9d1d9; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .dashboard { width: 100%; max-width: 1000px; border: 1px solid #30363d; padding: 20px; background: var(--panel); border-radius: 8px; }
+        header { display: flex; justify-content: space-between; border-bottom: 2px solid var(--orange); padding-bottom: 10px; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px; }
+        @media (min-width: 600px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+        .card { background: #161b22; border: 1px solid #30363d; padding: 15px; text-align: center; border-radius: 4px; }
+        .val { font-size: 2rem; font-weight: bold; display: block; margin: 10px 0; color: var(--green); }
+        .disclaimer { border: 2px solid var(--orange); background: rgba(240, 136, 62, 0.1); padding: 15px; margin-top: 20px; font-size: 0.85rem; border-radius: 4px; line-height: 1.5; text-align: justify; }
+        .logic-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.9rem; }
+        .logic-table td, .logic-table th { padding: 10px; border-bottom: 1px solid #30363d; text-align: right; }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div style="font-family:monospace;">● ORACLE v4.6.2</div>
+            <div style="color:var(--orange); font-weight:bold;">TACTICAL READINESS DASHBOARD</div>
+            <div style="font-family:monospace;">2026-02-27</div>
+        </header>
+        <div class="grid">
+            <div class="card"><div>NATIONAL B.R.I</div><span class="val">24%</span></div>
+            <div class="card"><div>LOCAL B.R.I</div><span class="val" style="color:var(--blue)">14%</span></div>
+            <div class="card"><div>AVIATION</div><span class="val" style="color:#00f2ff">98%</span></div>
+            <div class="card"><div>LOGISTICS</div><span class="val">95%</span></div>
+        </div>
+        <table class="logic-table">
+            <tr><th>פרמטר</th><th>סוג</th><th>השפעה</th></tr>
+            <tr><td>SAI (Strategic Alert)</td><td style="color:var(--orange)">RISK</td><td style="color:var(--orange)">+19%</td></tr>
+            <tr><td>VEC_A (Aviation Shield)</td><td style="color:var(--blue)">MITIGATION</td><td style="color:var(--blue)">-10%</td></tr>
+        </table>
+        <div class="disclaimer">
+            <b style="color:var(--orange)">⚠ דיסקליימר (DISCLAIMER):</b><br>
+            דשבורד זה הוא מודל אנליטי ניסיוני המבוסס על נתוני OSINT בלבד. הוא **אינו** מהווה תחליף להנחיות רשמיות. אין להסתמך על נתונים אלו לקבלת החלטות בטיחותיות. במקרה של אזעקה או אירוע ביטחוני, יש לפעול על פי הנחיות **פיקוד העורף** בלבד ובאופן מיידי.
+        </div>
+    </div>
+</body>
+</html>
