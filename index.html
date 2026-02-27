@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORACLE 4.6.2 | Ultimate Dashboard</title>
+    <style>
+        :root { --bg: #010409; --panel: #0d1117; --accent: #00f2ff; --green: #00ff41; --orange: #f0883e; --red: #ff3e3e; --blue: #58a6ff; --text: #c9d1d9; --dim: #8b949e; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .dashboard { width: 100%; max-width: 1100px; display: flex; flex-direction: column; gap: 20px; }
+        header { display: flex; justify-content: space-between; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        .h-title { color: var(--orange); font-weight: bold; font-size: 1.1rem; text-align: center; letter-spacing: 2px; flex-grow: 1; }
+        
+        /* Gauge Grid */
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .card { background: var(--panel); border: 1px solid #30363d; padding: 15px; border-radius: 4px; text-align: center; position: relative;}
+        .gauge-svg { width: 120px; height: 70px; }
+        .gauge-bg { fill: none; stroke: #21262d; stroke-width: 10; }
+        .gauge-fill { fill: none; stroke-width: 10; stroke-linecap: round; transition: stroke-dasharray 0.5s; }
+        .gauge-text { font-size: 22px; font-weight: bold; fill: white; text-anchor: middle; }
+        .c-label { font-size: 0.6rem; color: var(--dim); text-transform: uppercase; margin-top: 5px; }
+
+        /* Middle Grid */
+        .mid-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 15px; }
+        .box { background: var(--panel); border: 1px solid #30363d; padding: 15px; border-radius: 4px; }
+        .box-h { font-size: 0.7rem; color: var(--accent); letter-spacing: 1px; margin-bottom: 15px; }
+        
+        /* Trend Graph Simulation */
+        .graph-container { height: 120px; display: flex; align-items: flex-end; gap: 4px; border-left: 1px solid #30363d; border-bottom: 1px solid #30363d; padding: 5px; }
+        .bar { width: 10px; background: var(--blue); opacity: 0.5; transition: height 0.3s; }
+
+        .threat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .threat-box { background: #161b22; border: 1px solid #30363d; padding: 10px; text-align: center; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 0.75rem; }
+        th { text-align: right; color: var(--dim); border-bottom: 1px solid #30363d; padding: 8px; }
+        td { padding: 10px 8px; border-bottom: 1px solid #21262d; }
+        .badge { padding: 2px 6px; border: 1px solid; font-size: 0.6rem; border-radius: 2px; font-weight: bold; }
+        
+        #admin { margin-top: 20px; padding: 15px; background: #161b22; border: 1px dashed var(--accent); display: none; }
+        input { background: #010409; border: 1px solid #30363d; color: white; padding: 5px; width: 50px; }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <header>
+        <div style="font-family:monospace; font-size:0.7rem;">● LOG LIVE<br>ORACLE v4.6.2</div>
+        <div class="h-title">COMPREHENSIVE THREAT READINESS DASHBOARD</div>
+        <div id="st" style="font-family:monospace; font-size:0.7rem; text-align:left;">2026-02-27 13:20<br><span style="color:var(--green)">SYNC: STABLE</span></div>
+    </header>
+
+    <div class="grid-4">
+        <div class="card">
+            <svg class="gauge-svg" viewBox="0 0 100 60">
+                <path class="gauge-bg" d="M10 50 A 40 40 0 0 1 90 50" />
+                <path class="gauge-fill" id="n-fill" d="M10 50 A 40 40 0 0 1 90 50" stroke="#00ff41" stroke-dasharray="31.4, 125.6" />
+                <text x="50" y="45" class="gauge-text" id="nv">24%</text>
+            </svg>
+            <div class="c-label">NATIONAL B.R.I</div>
+        </div>
+        <div class="card">
+            <svg class="gauge-svg" viewBox="0 0 100 60">
+                <path class="gauge-bg" d="M10 50 A 40 40 0 0 1 90 50" />
+                <path class="gauge-fill" id="l-fill" d="M10 50 A 40 40 0 0 1 90 50" stroke="#58a6ff" stroke-dasharray="18, 125.6" />
+                <text x="50" y="45" class="gauge-text" style="fill:#58a6ff" id="lv">14%</text>
+            </svg>
+            <div class="c-label">LOCAL B.R.I - NETANYA</div>
+        </div>
+        <div class="card">
+            <svg class="gauge-svg" viewBox="0 0 100 60">
+                <path class="gauge-bg" d="M10 50 A 40 40 0 0 1 90 50" />
+                <path class="gauge-fill" d="M10 50 A 40 40 0 0 1 90 50" stroke="#00f2ff" stroke-dasharray="123, 125.6" />
+                <text x="50" y="45" class="gauge-text" style="fill:#00f2ff">98%</text>
+            </svg>
+            <div class="c-label">AVIATION CONTINUITY</div>
+        </div>
+        <div class="card">
+            <svg class="gauge-svg" viewBox="0 0 100 60">
+                <path class="gauge-bg" d="M10 50 A 40 40 0 0 1 90 50" />
+                <path class="gauge-fill" id="log-f" d="M10 50 A 40 40 0 0 1 90 50" stroke="#00ff41" stroke-dasharray="119, 125.6" />
+                <text x="50" y="45" class="gauge-text" id="log-v">95%</text>
+            </svg>
+            <div class="c-label">LOGISTICAL INTEGRITY</div>
+        </div>
+    </div>
+
+    <div class="mid-grid">
+        <div class="box">
+            <div class="box-h">◆ HISTORICAL PROBABILITY TRENDS (24H)</div>
+            <div class="graph-container" id="graph">
+                </div>
+        </div>
+        <div class="box">
+            <div class="box-h">◆ THREAT ORIGIN MATRIX</div>
+            <div class="threat-grid">
+                <div class="threat-box">IR<br><span style="color:var(--green)" id="ir-p">18%</span></div>
+                <div class="threat-box">LB<br><span style="color:var(--green)" id="lb-p">12%</span></div>
+                <div class="threat-box">YE<br><span style="color:var(--green)">5%</span></div>
+                <div class="threat-box">IQ<br><span style="color:var(--green)">5%</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="box-h">◆ SCORING LOGIC - ALL VECTORS</div>
+        <table>
+            <tr><th>PARAMETER</th><th>SOURCE</th><th>TYPE</th><th>IMPACT</th></tr>
+            <tr><td>SAI</td><td>Strategic Tension</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK</span></td><td style="color:var(--orange)" id="si">+19%</td></tr>
+            <tr><td>VEC_C</td><td>Proxy Noise</td><td><span class="badge" style="border-color:var(--orange); color:var(--orange)">RISK</span></td><td style="color:var(--orange)">+7%</td></tr>
+            <tr><td>VEC_A</td><td>Aviation Shield</td><td><span class="badge" style="border-color:var(--blue); color:var(--blue)">MITIGATION</span></td><td style="color:var(--blue)">-10%</td></tr>
+            <tr><td>VEC_B</td><td>Signal/GPS</td><td><span class="badge" style="border-color:var(--green); color:var(--green)">SENSOR</span></td><td>±0%</td></tr>
+            <tr><td>LOGS</td><td>Ground Ops</td><td><span class="badge" style="border-color:var(--green); color:var(--green)">LOGISTIC</span></td><td>±0%</td></tr>
+        </table>
+    </div>
+</div>
+
+<button onclick="document.getElementById('admin').style.display='block'" style="background:none; border:none; color:#161b22; cursor:pointer;">[ ADMIN ]</button>
+<div id="admin">
+    SAI: <input type="number" id="i-sai" value="47.1"> | Nat: <input type="number" id="i-nat" value="24"> | Loc: <input type="number" id="i-loc" value="14"> | IR: <input type="number" id="i-ir" value="18"> | LB: <input type="number" id="i-lb" value="12"> | Log: <input type="number" id="i-log" value="95">
+    <button onclick="upd()">Update Dashboard</button>
+</div>
+
+<script>
+    function upd() {
+        const sai = document.getElementById('i-sai').value;
+        const nat = document.getElementById('i-nat').value;
+        const loc = document.getElementById('i-loc').value;
+        const log = document.getElementById('i-log').value;
+
+        document.getElementById('nv').textContent = nat + "%";
+        document.getElementById('n-fill').style.strokeDasharray = (nat * 1.25) + ", 125.6";
+        document.getElementById('lv').textContent = loc + "%";
+        document.getElementById('l-fill').style.strokeDasharray = (loc * 1.25) + ", 125.6";
+        document.getElementById('log-v').textContent = log + "%";
+        document.getElementById('log-f').style.strokeDasharray = (log * 1.25) + ", 125.6";
+        document.getElementById('si').textContent = "+" + Math.round((sai/50)*20) + "%";
+        
+        // Add bar to graph
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        bar.style.height = (nat * 1.5) + 'px';
+        document.getElementById('graph').appendChild(bar);
+        if(document.getElementById('graph').children.length > 40) document.getElementById('graph').removeChild(document.getElementById('graph').children[0]);
+
+        document.getElementById('admin').style.display = 'none';
+    }
+    // Initial Graph Data
+    for(let i=0; i<30; i++) { upd(); }
+</script>
+</body>
+</html>
